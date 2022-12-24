@@ -51,4 +51,15 @@ public abstract class Transport {
         System.out.println("Закончить движение");
     }
 
-}
+
+    @Override
+    public String toString() {
+        return
+                "Марка " + brand  +
+                ", модель " + model +
+                ", объем двигателя " + engineVolume;
+    }
+
+
+    }
+

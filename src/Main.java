@@ -19,7 +19,18 @@ public class Main {
         Truck scania = new Truck("Scania", " R730", 16.4);
         Truck maz = new Truck("Маз", "Generation 4", 13);
         Truck kamaz = new Truck("Камаз", "43509", 16.2);
-
+        System.out.println(lada);
+        System.out.println(audi);
+        System.out.println(bmw);
+        System.out.println(kia);
+        System.out.println(ikarus);
+        System.out.println(liaz);
+        System.out.println(gza);
+        System.out.println(paz);
+        System.out.println(volvo);
+        System.out.println(scania);
+        System.out.println(maz);
+        System.out.println(kamaz);
     }
 }
 
