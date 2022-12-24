@@ -1,42 +1,26 @@
 import Transport.Bus;
 import Transport.Car;
+import Transport.Truck;
 
 
 public class Main {
     public static void main(String[] args) {
-        Car lada = new Car("Lada", "Granta", 1.7, "желтый", 2015, "Россия");
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "черный", 2020, "Германия");
-        Car bmw = new Car("BMW", "Z8", 0, "черный", 2021, "Германия");
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, "красный", 2018, "Южная Корея");
-        Car hyundai = new Car("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южная Корея");
+        Car lada = new Car("Lada", "Granta", 1.7);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0);
+        Car bmw = new Car("BMW", "Z8", 0);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4);
 
-        printInfo(lada);
-        printInfo(audi);
-        printInfo(bmw);
-        printInfo(kia);
-        printInfo(hyundai);
+        Bus ikarus = new Bus("Икарус", "Пассажисркий", 4.25);
+        Bus liaz = new Bus("ЛиАЗ-677", "Пассажисркий", 3.50);
+        Bus gza = new Bus("ГЗА-651 ", "Пассажисркий", 5);
+        Bus paz = new Bus("Паз", "3205",4);
 
-        Bus ikarus = new Bus("Икарус", "Пассажисркий", 1980, "СССР", "Красный", 90);
-        Bus liaz = new Bus("ЛиАЗ-677", "Пассажисркий", 1967, "СССР", "Желтый", 70);
-        Bus gza = new Bus("ГЗА-651 ", "Пассажисркий", 1950, "СССР", "Красный", 60);
-        System.out.println(ikarus);
-        System.out.println(liaz);
-        System.out.println(gza);
-    }
+        Truck volvo = new Truck("Volvo", "Wild Viking", 16.4);
+        Truck scania = new Truck("Scania", " R730", 16.4);
+        Truck maz = new Truck("Маз", "Generation 4", 13);
+        Truck kamaz = new Truck("Камаз", "43509", 16.2);
 
-
-    private static void printInfo(Car car) {
-        System.out.println(
-                car.getBrand() + " " + car.getModel() +
-                        ", год выпуск: " + car.getProductionYear() +
-                        ", страна сборки " + car.getProductionCountry() +
-                        ", цвет кузова: " + car.getColor() +
-                        ", объем двигателя: " + car.getEngineVolume() +
-                        ", коробка передач: " + car.getGears() +
-                        ", тип кузова " + car.getTypeOfBody() +
-                        ", рег. номер " + car.getRegNumber() +
-                        ", количество мест " + car.getSeatsCount() +
-                        ",   " + (car.isSummerTyers() ? "летняя" : "зимняя") + " резина"
-        );
     }
 }
+
+

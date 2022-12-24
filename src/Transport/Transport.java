@@ -1,16 +1,13 @@
 package Transport;
 
-public abstract class Transport {
-    private  String brand;
-    private  String model;
-    private   int productionYear;
-    private   String productionCountry;
-    private String color;
-    private  int maxSpeed;
+import java.util.SortedMap;
 
-    public  Transport (String brand, String model,
-                     int productionYear, String productionCountry,
-                     String color, int maxSpeed) {
+public abstract class Transport {
+    private final String brand;
+    private  final String model;
+    private double engineVolume;
+
+    public Transport(String brand, String model, double engineVolume) {
 
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
             brand = "default";
@@ -22,36 +19,15 @@ public abstract class Transport {
         }
         this.model = model;
 
-
-        if (productionYear <= 0 ) {
-            productionYear = 2000;
+        if (engineVolume <= 0) {
+            engineVolume = 1.5;
         }
-        this.productionYear = productionYear;
+        this.engineVolume = engineVolume;
 
-        if (productionCountry == null || productionCountry.isEmpty() || productionCountry.isBlank()) {
-            productionCountry = "default";}
-        this.productionCountry = productionCountry;
 
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            color = "Белый";
-        }
-        this.color = color;
-
-        if (maxSpeed <= 0 ) {
-            maxSpeed = 120;
-        }
-        this.maxSpeed = maxSpeed;
     }
 
-    public Transport(String brand, String model, int productionYear, String productionCountry, String color) {
-        this.brand = brand;
-        this.model = model;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        this.color = color;
-    }
-
-    public  String getBrand(){
+    public String getBrand() {
         return brand;
     }
 
@@ -59,39 +35,20 @@ public abstract class Transport {
         return model;
     }
 
-    public int getProductionYear() {
-        return productionYear;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public String getProductionCountry() {
-        return productionCountry;
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
+    public static void startMove() {
+        System.out.println("Начать движение");
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
+    public static void endMove() {
+        System.out.println("Закончить движение");
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    @Override
-    public String toString() {
-        return
-                "Марка " + brand  +
-                ", модель " + model  +
-                ", год производства " + productionYear +
-                ", страна производства " + productionCountry +
-                ", цвет " + color +
-                ", максимальная скорость " + maxSpeed
-                ;
-    }
 }
