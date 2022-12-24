@@ -12,12 +12,14 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
-    public String[] bestLapTime() {
-        return new String[0];
+    public void getBestLapTime() {
+
     }
 
     @Override
-    public String[] maxSpeed() {
-        return new String[0];
+    public void getMaximumSpeed() {
+
     }
+
 }
+
