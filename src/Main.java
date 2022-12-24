@@ -1,3 +1,6 @@
+import Driver.DriverB;
+import Driver.DriverC;
+import Driver.DriverD;
 import Transport.Bus;
 import Transport.Car;
 import Transport.Truck;
@@ -31,6 +34,13 @@ public class Main {
         System.out.println(scania);
         System.out.println(maz);
         System.out.println(kamaz);
+
+        DriverD<Bus> anton = new DriverD<Bus>("Антон Петрович Васечкин", true, 8);
+        anton.drive(ikarus);
+        DriverC<Truck> petr = new DriverC<Truck>("Петр Васильевич Петров",true,10);
+        petr.drive(kamaz);
+        DriverB<Car> ivan = new DriverB<Car>("Иван Спиридонович Плюшкин", true, 20);
+        ivan.drive(lada);
     }
 }
 
