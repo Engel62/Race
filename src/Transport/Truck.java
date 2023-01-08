@@ -31,6 +31,9 @@ public class Truck extends Transport implements Competing {
             System.out.println("Load capacity: " + loadCapacityLowerLimit + loadCapacityUpperLimit);
         }
     }
+    public void passDiagnostics() {
+        System.out.println("Грузовик " + getBrand() + ", " + getModel() + " проходит диагностику");
+    }
 
     @Override
     public void pitStop() {

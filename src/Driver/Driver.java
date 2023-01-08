@@ -5,8 +5,9 @@ public abstract class Driver {
     private String fullName;
     private boolean driversLicence;
     private int drivingExperience;
+    private String category;
 
-    public Driver(String fullName, boolean driversLicence, int drivingExperience) {
+    public Driver(String fullName, boolean driversLicence, int drivingExperience, String category) {
         if (fullName == null || fullName.isEmpty()) {
             this.fullName = "Иванов Иван Иваныч";
         } else {
@@ -18,6 +19,7 @@ public abstract class Driver {
         } else {
             this.drivingExperience = drivingExperience;
         }
+        setCategory(category);
     }
 
     public String getFullName() {
@@ -57,7 +59,28 @@ public abstract class Driver {
         return "ФИО: " + fullName + ", имеет ВУ: " + driversLicence +
                 ", опыт вождения: " + drivingExperience + " лет.";
     }
-
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        if (category == null || category.isEmpty()) {
+            try {
+                throw new RuntimeException ("Driver's licence category have to be specified" +
+                        " for the driver " + getFullName());
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        } else if (category.equals("B") || category.equals("C") || category.equals("D")) {
+            this.category = category;
+        } else {
+            try {
+                throw new RuntimeException("Driver's licence category have to be specified" +
+                        " for the driver " + getFullName());
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

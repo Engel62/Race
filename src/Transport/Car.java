@@ -1,6 +1,9 @@
 package Transport;
 public class Car extends Transport implements Competing  {
     private BodyType bodyType;
+    public void passDiagnostics() {
+        System.out.println("Машина " + getBrand() + ", " + getModel() + " на диагностике");
+    }
 
     public Car(String brand, String model, double engineVolume,BodyType bodyType) {
         super(brand, model, engineVolume);

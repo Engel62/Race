@@ -26,6 +26,9 @@ public class Bus extends Transport implements Competing {
                     seatsCapacity.getSeatsCapacityUpperLimit() + " мест");
         }
     }
+    public void passDiagnostics() {
+        throw new UnsupportedOperationException("Автобус " + getBrand() + ", " + getModel() + " не может пройти диагностику");
+    }
 
 
     @Override

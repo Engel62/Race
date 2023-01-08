@@ -23,8 +23,4 @@ public enum SeatsCapacity {
         return seatsCapacityUpperLimit;
     }
 
-//    @Override
-//    public String toString() {
-//        return "SeatsCapacity: " + seatsCapacityLowerLimit + "-" + seatsCapacityUpperLimit + " seats";
-//    }
 }

@@ -50,6 +50,7 @@ public abstract class Transport {
     public static void endMove() {
         System.out.println("Закончить движение");
     }
+    public abstract void passDiagnostics();
 
 
     @Override
@@ -59,7 +60,16 @@ public abstract class Transport {
                 ", модель " + model +
                 ", объем двигателя " + engineVolume ;
     }
-
+    public static void performDiagnostics(Transport... transports) {
+        for (Transport transport : transports) {
+            try {
+                transport.passDiagnostics();
+            } catch (UnsupportedOperationException e) {
+                System.out.println("An error occurred");
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
     }
 
