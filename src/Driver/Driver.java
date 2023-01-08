@@ -65,22 +65,23 @@ public abstract class Driver {
     public void setCategory(String category) {
         if (category == null || category.isEmpty()) {
             try {
-                throw new RuntimeException ("Необходимо указать категорию водительских прав " +
+                throw new DriversLicenceException("Необходимо указать категорию водительских прав " +
                         " для водителя " + getFullName());
-            } catch (RuntimeException e) {
+            } catch (DriversLicenceException e) {
                 System.out.println(e.getMessage());
             }
         } else if (category.equals("B") || category.equals("C") || category.equals("D")) {
             this.category = category;
         } else {
             try {
-                throw new RuntimeException("Необходимо указать категорию водительских прав" +
+                throw new DriversLicenceException("Необходимо указать категорию водительских прав " +
                         " для водителя " + getFullName());
-            } catch (RuntimeException e) {
+            } catch (DriversLicenceException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
