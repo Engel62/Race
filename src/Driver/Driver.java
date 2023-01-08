@@ -65,8 +65,8 @@ public abstract class Driver {
     public void setCategory(String category) {
         if (category == null || category.isEmpty()) {
             try {
-                throw new RuntimeException ("Driver's licence category have to be specified" +
-                        " for the driver " + getFullName());
+                throw new RuntimeException ("Необходимо указать категорию водительских прав " +
+                        " для водителя " + getFullName());
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
@@ -74,8 +74,8 @@ public abstract class Driver {
             this.category = category;
         } else {
             try {
-                throw new RuntimeException("Driver's licence category have to be specified" +
-                        " for the driver " + getFullName());
+                throw new RuntimeException("Необходимо указать категорию водительских прав" +
+                        " для водителя " + getFullName());
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
