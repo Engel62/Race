@@ -39,6 +39,8 @@ public class Main {
         petr.drive(kamaz);
         DriverB<Car> ivan = new DriverB<Car>("Иван Спиридонович Плюшкин", true, 20);
         ivan.drive(lada);
+
+
     }
 }
 
