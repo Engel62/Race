@@ -1,6 +1,8 @@
 package Driver;
 
-public class Mechanic {
+import Transport.Transport;
+
+public class Mechanic <T extends Transport> {
     private String name;
     private String company;
     private String carTypeWork;
@@ -26,4 +28,13 @@ public class Mechanic {
     public void setCarTypeWork(String carTypeWork) {
         this.carTypeWork = carTypeWork;
     }
+
+    public void performMaintenance() {
+        System.out.println("Проводит тех.обслуживание");
+    }
+
+    public void repairCar() {
+        System.out.println("Починить машину");
+    }
+
 }
