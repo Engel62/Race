@@ -2,39 +2,62 @@ package Driver;
 
 import Transport.Transport;
 
-public class Mechanic <T extends Transport> {
-    private String name;
-    private String company;
-    private String carTypeWork;
+import java.util.Objects;
 
-    public Mechanic(String name, String company, String carTypeWork) {
-        this.name = name;
-        this.company = company;
-        this.carTypeWork = carTypeWork;
+public class Mechanic {
+    final private String firstNameMechanic;
+    final private String secondNameMechanic;
+    private String repairServiceCompany;
+    final private TransportRepairSpecification transportRepairSpecification;
+
+    public Mechanic(String firstNameMechanic, String secondNameMechanic, String repairServiceCompany, TransportRepairSpecification transportRepairSpecification) {
+        this.firstNameMechanic = firstNameMechanic;
+        this.secondNameMechanic = secondNameMechanic;
+        setRepairServiceCompany(repairServiceCompany);
+        this.transportRepairSpecification = transportRepairSpecification;
     }
 
-    public String getName() {
-        return name;
+
+    public String getFirstNameMechanic() {
+        return firstNameMechanic;
     }
 
-    public String getCompany() {
-        return company;
+    public String getSecondNameMechanic() {
+        return secondNameMechanic;
     }
 
-    public String getCarTypeWork() {
-        return carTypeWork;
+    public String getRepairServiceCompany() {
+        return repairServiceCompany;
     }
 
-    public void setCarTypeWork(String carTypeWork) {
-        this.carTypeWork = carTypeWork;
+    public TransportRepairSpecification getTransportRepairSpecification() {
+        return transportRepairSpecification;
     }
 
-    public void performMaintenance() {
-        System.out.println("Проводит тех.обслуживание");
+    public void setRepairServiceCompany(String repairServiceCompany) {
+        if (repairServiceCompany == null || repairServiceCompany.isBlank() || repairServiceCompany.isEmpty()) {
+            this.repairServiceCompany = " механик автодрома ";
+        } else {
+            this.repairServiceCompany = repairServiceCompany;
+        }
     }
 
-    public void repairCar() {
-        System.out.println("Починить машину");
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return Objects.equals(firstNameMechanic, mechanic.firstNameMechanic) && Objects.equals(secondNameMechanic, mechanic.secondNameMechanic) && Objects.equals(repairServiceCompany, mechanic.repairServiceCompany) && transportRepairSpecification == mechanic.transportRepairSpecification;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstNameMechanic, secondNameMechanic, repairServiceCompany, transportRepairSpecification);
+    }
+
+    @Override
+    public String toString() {
+        return getSecondNameMechanic() + " " + getFirstNameMechanic() + " "
+                + " из компании " + getRepairServiceCompany() + " с классификацией " + getRepairServiceCompany();
+    }
 }
