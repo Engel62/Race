@@ -1,5 +1,9 @@
 package Transport;
 
+import Mechanic.Mechanic;
+
+import java.util.List;
+
 public class Truck extends Transport implements Competing {
     private LoadCapacity loadCapacity;
 
@@ -18,6 +22,21 @@ public class Truck extends Transport implements Competing {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public void getDiagnosisTransport() throws CantDiagnosisException {
+
+    }
+
+    @Override
+    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+
+    }
+
+    @Override
+    public void doRegularService(List<Mechanic> mechanics) {
+
     }
 
     public void printType() {

@@ -1,6 +1,8 @@
 package Transport;
 
-import java.util.SortedMap;
+import Mechanic.Mechanic;
+
+import java.util.List;
 
 public abstract class Transport {
     private final String brand;
@@ -57,8 +59,8 @@ public abstract class Transport {
     public String toString() {
         return
                 "Марка " + brand  +
-                ", модель " + model +
-                ", объем двигателя " + engineVolume ;
+                        ", модель " + model +
+                        ", объем двигателя " + engineVolume ;
     }
     public static void performDiagnostics(Transport... transports) {
         for (Transport transport : transports) {
@@ -70,6 +72,11 @@ public abstract class Transport {
             }
         }
     }
+    public abstract void getDiagnosisTransport() throws CantDiagnosisException;
 
-    }
+    public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
+
+
+    public abstract void doRegularService(List<Mechanic> mechanics);
+}
 

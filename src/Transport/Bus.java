@@ -1,5 +1,9 @@
 package Transport;
 
+import Mechanic.Mechanic;
+
+import java.util.List;
+
 public class Bus extends Transport implements Competing {
     private SeatsCapacity seatsCapacity;
 
@@ -15,9 +19,23 @@ public class Bus extends Transport implements Competing {
     public void setSeatsCapacity(SeatsCapacity seatsCapacity) {
         this.seatsCapacity = seatsCapacity;
     }
-    public String toString() {
-        return super.toString();
+
+
+    @Override
+    public void getDiagnosisTransport() throws CantDiagnosisException {
+
     }
+
+    @Override
+    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+
+    }
+
+    @Override
+    public void doRegularService(List<Mechanic> mechanics) {
+
+    }
+
     public void printType() {
         if (seatsCapacity == null) {
             System.out.println("Данных по транспортному средству недостаточно");
@@ -26,6 +44,22 @@ public class Bus extends Transport implements Competing {
                     seatsCapacity.getSeatsCapacityUpperLimit() + " мест");
         }
     }
+
+
+    public void getStart() {
+
+    }
+
+
+    public void getStop() {
+
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
     public void passDiagnostics() {
         throw new UnsupportedOperationException("Автобус " + getBrand() + ", " + getModel() + " не может пройти диагностику");
     }
