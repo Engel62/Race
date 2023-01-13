@@ -1,8 +1,7 @@
 package Transport;
-
 import Mechanic.Mechanic;
-
 import java.util.List;
+import Mechanic.VehicleRepairSpecification;
 
 public class Bus extends Transport implements Competing {
     private SeatsCapacity seatsCapacity;
@@ -19,6 +18,15 @@ public class Bus extends Transport implements Competing {
     public void setSeatsCapacity(SeatsCapacity seatsCapacity) {
         this.seatsCapacity = seatsCapacity;
     }
+    public Bus(String brand , String model , double engineVolume , List<Mechanic> mechanics , SeatsCapacity seatsCapacity) {
+        super ( brand , model , engineVolume , mechanics );
+        this.seatsCapacity = seatsCapacity;
+    }
+
+    public Bus(String brand , String model , double engineVolume , List<Mechanic> mechanics , List<Transport> transports , SeatsCapacity seatsCapacity) {
+        super ( brand , model , engineVolume , mechanics , transports );
+        this.seatsCapacity = seatsCapacity;
+    }
 
 
     @Override
@@ -27,14 +35,7 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
-    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
 
-    }
-
-    @Override
-    public void doRegularService(List<Mechanic> mechanics) {
-
-    }
 
     public void printType() {
         if (seatsCapacity == null) {
@@ -77,6 +78,26 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public void getMaximumSpeed() {
+    }
+    public void addMechanicTeamRacing(List<Mechanic> mechanics) {
+        System.out.println ( "Автобус " + getBrand () + " " + getModel () + ", объем двигателя " + getEngineVolume () );
+        for (Mechanic value : mechanics) {
+            if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_BUS || value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
+                System.out.println ( "- обслуживает " + value );
+            }
+        }
+    }
+
+
+    @Override
+    public void doRegularService(List<Mechanic> mechanics) {
+        System.out.println ( "Механики :" );
+        for (Mechanic value : mechanics) {
+            if (value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_CAR || value.getVehicleRepairSpecification () == VehicleRepairSpecification.SPECIFICATION_UNIVERSAL) {
+                System.out.println ( "- " + value );
+            }
+        }
+        System.out.println ( "производят регулярное ТО на автомобиле " + getBrand () + " " + getModel () );
 
     }
 

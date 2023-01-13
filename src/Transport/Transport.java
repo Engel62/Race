@@ -3,30 +3,72 @@ package Transport;
 import Mechanic.Mechanic;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport {
-    private final String brand;
-    private  final String model;
-    private double engineVolume;
+    final String brand;
+    final String model;
+    final double engineVolume;
 
-    public Transport(String brand, String model, double engineVolume) {
+    List<Mechanic> mechanics;
 
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
-            brand = "default";
+    List<Transport> transports;
+
+
+    public abstract void printType();
+
+    public Transport(String brand , String model , double engineVolume) {
+        if (brand == null || brand.isBlank ()) {
+            this.brand = "No brand";
+        } else {
+            this.brand = brand;
         }
+
+        if (model == null || model.isBlank ()) {
+            this.model = "No model";
+        } else {
+            this.model = model;
+        }
+
+        if (engineVolume <= 0.0) {
+            this.engineVolume = 1.5;
+        } else {
+            this.engineVolume = engineVolume;
+        }
+
+    }
+
+    public Transport(String brand , String model , double engineVolume , List<Mechanic> mechanic) {
         this.brand = brand;
-
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            model = "default";
-        }
         this.model = model;
-
-        if (engineVolume <= 0) {
-            engineVolume = 1.5;
-        }
         this.engineVolume = engineVolume;
+        this.mechanics = mechanic;
+    }
+
+    public Transport(String brand , String model , double engineVolume , List<Mechanic> mechanic , List<Transport> transports) {
+        this.brand = brand;
+        this.model = model;
+        this.engineVolume = engineVolume;
+        this.mechanics = mechanic;
+        this.transports = transports;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass () != o.getClass ()) return false;
+        Transport transport = (Transport) o;
+        return Objects.equals ( engineVolume , transport.engineVolume ) && Objects.equals ( brand , transport.brand ) && Objects.equals ( model , transport.model );
+    }
 
 
+    @Override
+    public int hashCode() {
+        return Objects.hash ( brand , model , engineVolume );
+    }
+
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
     public String getBrand() {
@@ -37,46 +79,21 @@ public abstract class Transport {
         return model;
     }
 
-    public double getEngineVolume() {
-        return engineVolume;
-    }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
+    public abstract void getStart();
 
-    public static void startMove() {
-        System.out.println("Начать движение");
-    }
-
-    public static void endMove() {
-        System.out.println("Закончить движение");
-    }
-    public abstract void passDiagnostics();
-
+    public abstract void getStop();
 
     @Override
-    public String toString() {
-        return
-                "Марка " + brand  +
-                        ", модель " + model +
-                        ", объем двигателя " + engineVolume ;
-    }
-    public static void performDiagnostics(Transport... transports) {
-        for (Transport transport : transports) {
-            try {
-                transport.passDiagnostics();
-            } catch (UnsupportedOperationException e) {
-                System.out.println("An error occurred");
-                System.out.println(e.getMessage());
-            }
-        }
-    }
+    public abstract String toString();
+
     public abstract void getDiagnosisTransport() throws CantDiagnosisException;
 
     public abstract void addMechanicTeamRacing(List<Mechanic> mechanics);
 
 
     public abstract void doRegularService(List<Mechanic> mechanics);
+
+
 }
 
