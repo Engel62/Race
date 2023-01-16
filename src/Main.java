@@ -5,7 +5,10 @@ import Driver.DriverD;
 import Mechanic.Mechanic;
 import Transport.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import Mechanic.VehicleRepairSpecification;
 
 
@@ -135,6 +138,14 @@ public class Main {
         car8.doRegularService ( mechanics );
         bus7.doRegularService ( mechanics );
         truck6.doRegularService ( mechanics );
+
+        Map <Transport, Mechanic> avtoRace  = new HashMap<>();
+        avtoRace.put(car5, mechanic1);
+        avtoRace.put(truck5, mechanic2);
+        avtoRace.put(bus5, mechanic3);
+        avtoRace.put(bus5, mechanic3);
+        System.out.print(avtoRace);
+
 
 
 
