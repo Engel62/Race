@@ -34,6 +34,7 @@ public class Main {
         Bus gza = new Bus("ГЗА-651 ", "Пассажисркий", 5,SeatsCapacity.SEATS_CAPACITY_LARGE);
         Bus paz = new Bus("Паз", "3205",4,SeatsCapacity.SEATS_CAPACITY_LARGE);
 
+
         Truck volvo = new Truck("Volvo", "Wild Viking", 16.4,LoadCapacity.LOAD_CAPACITY_N1);
         Truck scania = new Truck("Scania", " R730", 16.4,LoadCapacity.LOAD_CAPACITY_N1);
         Truck maz = new Truck("Маз", "Generation 4", 13,LoadCapacity.LOAD_CAPACITY_N3);
@@ -144,7 +145,9 @@ public class Main {
         avtoRace.put(truck5, mechanic2);
         avtoRace.put(bus5, mechanic3);
         avtoRace.put(bus5, mechanic3);
-        System.out.print(avtoRace);
+        System.out.println(avtoRace);
+
+
 
 
 

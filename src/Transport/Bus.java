@@ -46,6 +46,10 @@ public class Bus extends Transport implements Competing {
         }
     }
 
+    @Override
+    public String toString() {
+        return getBrand() + getModel();
+    }
 
     public void getStart() {
 
@@ -54,11 +58,6 @@ public class Bus extends Transport implements Competing {
 
     public void getStop() {
 
-    }
-
-    @Override
-    public String toString() {
-        return null;
     }
 
     public void passDiagnostics() {
@@ -89,6 +88,7 @@ public class Bus extends Transport implements Competing {
     }
 
 
+
     @Override
     public void doRegularService(List<Mechanic> mechanics) {
         System.out.println ( "Механики :" );
@@ -99,6 +99,15 @@ public class Bus extends Transport implements Competing {
         }
         System.out.println ( "производят регулярное ТО на автомобиле " + getBrand () + " " + getModel () );
 
+    }
+    @Override
+    public boolean equals(Object o) {
+        return super.equals ( o );
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode ();
     }
 
 

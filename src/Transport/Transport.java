@@ -53,19 +53,6 @@ public abstract class Transport {
         this.transports = transports;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass () != o.getClass ()) return false;
-        Transport transport = (Transport) o;
-        return Objects.equals ( engineVolume , transport.engineVolume ) && Objects.equals ( brand , transport.brand ) && Objects.equals ( model , transport.model );
-    }
-
-
-    @Override
-    public int hashCode() {
-        return Objects.hash ( brand , model , engineVolume );
-    }
 
     public double getEngineVolume() {
         return engineVolume;
@@ -94,6 +81,17 @@ public abstract class Transport {
 
     public abstract void doRegularService(List<Mechanic> mechanics);
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(mechanics, transport.mechanics) && Objects.equals(transports, transport.transports);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, mechanics, transports);
+    }
 }
 

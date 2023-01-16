@@ -82,9 +82,10 @@ public class Truck extends Transport implements Competing {
 
     }
 
+
     @Override
     public String toString() {
-        return null;
+        return getBrand() + getModel();
     }
 
     public void passDiagnostics() {
@@ -104,6 +105,15 @@ public class Truck extends Transport implements Competing {
     @Override
     public void getMaximumSpeed() {
 
+    }
+    @Override
+    public boolean equals(Object o) {
+        return super.equals ( o );
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode ();
     }
 
 }
