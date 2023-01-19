@@ -4,10 +4,8 @@ import Driver.DriverC;
 import Driver.DriverD;
 import Mechanic.Mechanic;
 import Transport.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 import Mechanic.VehicleRepairSpecification;
 
@@ -146,6 +144,21 @@ public class Main {
         avtoRace.put(bus5, mechanic3);
         avtoRace.put(bus5, mechanic3);
         System.out.println(avtoRace);
+
+        Set <Driver> allDriversSet = new HashSet<>();
+        allDriversSet.add(anton);
+        allDriversSet.add(petr);
+        allDriversSet.add(ivan);
+        allDriversSet.add(anton);
+        for (Driver driver : allDriversSet) {
+            System.out.println(driver);
+        }
+        System.out.println("=========================");
+        Iterator<Driver> driverIterator = drivers.iterator();
+        while (driverIterator.hasNext()) {
+            System.out.println(driverIterator.next());
+        }
+
 
 
 
